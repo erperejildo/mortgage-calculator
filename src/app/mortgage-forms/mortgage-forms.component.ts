@@ -19,11 +19,12 @@ export class MortgageFormsComponent implements OnInit {
   @Output() calculationDone: EventEmitter<any> = new EventEmitter<any>();
   @Output() formHasErrors: EventEmitter<any> = new EventEmitter<any>();
 
+  hasError: boolean = false;
+
   ngOnInit(): void {
     this.calculate();
   }
 
-  // Handling input change and validation
   onInputChange(
     event: Event,
     model: 'borrowAmount' | 'purchasePrice' | 'grossIncome' | 'interestRate'
@@ -32,11 +33,17 @@ export class MortgageFormsComponent implements OnInit {
     const value = input.value.replace(/,/g, '');
 
     if (!value || isNaN(Number(value))) {
+      this.hasError = true;
       (this[model] as number | null) = null;
     } else {
+      this.hasError = false;
       (this[model] as number) = parseFloat(value);
       this.calculate();
     }
+
+    this.formHasErrors.emit({
+      hasError: this.hasError,
+    });
   }
 
   calculate() {

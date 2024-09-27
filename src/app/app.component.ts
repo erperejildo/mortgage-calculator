@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
     <div class="container">
       <app-mortgage-forms
         (calculationDone)="handleCalculation($event)"
+        (formHasErrors)="handleErrors($event)"
       ></app-mortgage-forms>
 
       <app-mortgage-result
@@ -13,6 +14,7 @@ import { Component } from '@angular/core';
         [debtToIncomeRatio]="calculatedData?.debtToIncomeRatio"
         [loanToValueRatio]="calculatedData?.loanToValueRatio"
         [loanTerm]="calculatedData?.loanTerm"
+        [hasError]="formHasErrors"
       ></app-mortgage-result>
     </div>
   `,
@@ -22,8 +24,10 @@ export class AppComponent {
   calculatedData: any = null;
   formHasErrors: boolean = false;
 
-  // Function to handle the emitted event and store the calculation results
   handleCalculation(eventData: any) {
     this.calculatedData = eventData;
+  }
+  handleErrors(evenData: any) {
+    this.formHasErrors = evenData.hasError;
   }
 }

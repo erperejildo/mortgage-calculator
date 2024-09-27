@@ -6,21 +6,22 @@
 <h4>Your Mortgage Calculation</h4>
 <i class="fas fa-calculator"></i>
 
-<!-- Display the calculated monthly payment -->
-<span class="mortgage-total">€{{ monthlyPayment | number: '1.2-2' }}</span>
+<span class="mortgage-total" [ngClass]="{ 'blur-text': hasError }"
+  >€{{ monthlyPayment | number: '1.2-2' }}</span
+>
 <span class="per-month">Per Month</span>
 
 <div class="mortgage-info">
   <div class="mortgage-info-item">
-    <span>{{ debtToIncomeRatio }}x</span>
+    <span [ngClass]="{ 'blur-text': hasError }">{{ debtToIncomeRatio }}x</span>
     <label>Debt To Income</label>
   </div>
   <div class="mortgage-info-item">
-    <span>{{ loanToValueRatio }}%</span>
+    <span [ngClass]="{ 'blur-text': hasError }">{{ loanToValueRatio }}%</span>
     <label>Loan To Value</label>
   </div>
   <div class="mortgage-info-item">
-    <span>{{ loanTerm }}</span>
+    <span [ngClass]="{ 'blur-text': hasError }">{{ loanTerm }}</span>
     <label>Term (Years)</label>
   </div>
 </div>
