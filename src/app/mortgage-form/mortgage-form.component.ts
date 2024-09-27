@@ -60,31 +60,59 @@ export class MortgageFormComponent implements OnInit {
       this.grossIncome !== null &&
       this.interestRate !== null
     ) {
-      let monthlyInterestRate = this.interestRate / 100 / 12;
-      let numberOfPayments = this.loanTerm * 12;
-
-      this.monthlyPayment =
-        (this.borrowAmount * monthlyInterestRate) /
-        (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
-
-      this.loanToValueRatio =
-        parseFloat((this.borrowAmount / this.purchasePrice).toFixed(2)) * 100;
-
-      this.debtToIncomeRatio = parseFloat(
-        (this.borrowAmount / this.grossIncome).toFixed(1)
+      this.monthlyPayment = this.calculateMonthlyPayment(
+        this.borrowAmount,
+        this.interestRate,
+        this.loanTerm
       );
-
+      this.debtToIncomeRatio = this.calculateDebtToIncomeRatio(
+        this.monthlyPayment,
+        this.grossIncome
+      );
+      this.loanToValueRatio = this.calculateLoanToValueRatio(
+        this.borrowAmount,
+        this.purchasePrice
+      );
       if (this.monthlyPayment < 0) {
         this.hasError = true;
       } else {
         this.mortgageService.setCalculationData({
-          monthlyPayment: this.monthlyPayment,
-          debtToIncomeRatio: this.debtToIncomeRatio,
-          loanToValueRatio: this.loanToValueRatio,
+          monthlyPayment: this.monthlyPayment.toFixed(2),
+          debtToIncomeRatio: this.debtToIncomeRatio.toFixed(2),
+          loanToValueRatio: this.loanToValueRatio.toFixed(2),
           loanTerm: this.loanTerm,
           hasError: this.hasError,
         });
       }
     }
+  }
+
+  private calculateMonthlyPayment(
+    principal: number,
+    annualInterestRate: number,
+    loanTermYears: number
+  ): number {
+    const monthlyInterestRate = annualInterestRate / 12 / 100;
+    const numberOfPayments = loanTermYears * 12;
+    const numerator =
+      principal *
+      monthlyInterestRate *
+      Math.pow(1 + monthlyInterestRate, numberOfPayments);
+    const denominator = Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1;
+    return numerator / denominator;
+  }
+
+  private calculateDebtToIncomeRatio(
+    monthlyPayment: number,
+    grossIncome: number
+  ): number {
+    return (monthlyPayment / grossIncome) * 100;
+  }
+
+  private calculateLoanToValueRatio(
+    borrowAmount: number,
+    purchasePrice: number
+  ): number {
+    return (borrowAmount / purchasePrice) * 100;
   }
 }

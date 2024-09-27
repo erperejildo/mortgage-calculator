@@ -12,6 +12,14 @@ describe('MortgageFormComponent', () => {
   let fixture: ComponentFixture<MortgageFormComponent>;
   let mortgageService: jasmine.SpyObj<MortgageService>;
 
+  const defaultValues = {
+    borrowAmount: 826800,
+    purchasePrice: 910000,
+    loanTerm: 30,
+    grossIncome: 225000,
+    interestRate: 3.65,
+  };
+
   beforeEach(async () => {
     const mortgageServiceSpy = jasmine.createSpyObj('MortgageService', [
       'setCalculationData',
@@ -44,20 +52,40 @@ describe('MortgageFormComponent', () => {
   });
 
   it('should initialize with default values', () => {
-    expect(component.borrowAmount).toBe(826800);
-    expect(component.purchasePrice).toBe(910000);
-    expect(component.loanTerm).toBe(30);
-    expect(component.grossIncome).toBe(225000);
-    expect(component.interestRate).toBe(3.65);
+    expect(component.borrowAmount).toBe(defaultValues.borrowAmount);
+    expect(component.purchasePrice).toBe(defaultValues.purchasePrice);
+    expect(component.loanTerm).toBe(defaultValues.loanTerm);
+    expect(component.grossIncome).toBe(defaultValues.grossIncome);
+    expect(component.interestRate).toBe(defaultValues.interestRate);
     expect(component.hasError).toBeFalse();
   });
 
-  it('should calculate monthly payment, loan-to-value ratio, and debt-to-income ratio correctly', () => {
+  it('should calculate monthly payment, loan-to-value ratio, and debt-to-income ratio correctly using default values', () => {
+    component.borrowAmount = defaultValues.borrowAmount;
+    component.purchasePrice = defaultValues.purchasePrice;
+    component.grossIncome = defaultValues.grossIncome;
+    component.loanTerm = defaultValues.loanTerm;
+    component.interestRate = defaultValues.interestRate;
+
     component.calculate();
 
-    expect(component.monthlyPayment).toBeGreaterThan(0);
-    expect(component.loanToValueRatio).toBeCloseTo(91, 2);
-    expect(component.debtToIncomeRatio).toBeCloseTo(3.7, 2);
+    const expectedMonthlyPayment = 3782.28;
+    const expectedDTI = 1.68;
+    const expectedLTV = 90.86;
+
+    expect(component.monthlyPayment).toBeCloseTo(expectedMonthlyPayment, 2);
+    expect(component.debtToIncomeRatio).toBeCloseTo(expectedDTI, 2);
+    expect(component.loanToValueRatio).toBeCloseTo(expectedLTV, 2);
+
+    expect(mortgageService.setCalculationData.calls.argsFor(0)).toEqual([
+      {
+        monthlyPayment: expectedMonthlyPayment.toFixed(2),
+        debtToIncomeRatio: expectedDTI.toFixed(2),
+        loanToValueRatio: expectedLTV.toFixed(2),
+        loanTerm: component.loanTerm,
+        hasError: false,
+      },
+    ]);
   });
 
   it('should set hasError to false and calculate values when input value is valid', () => {
