@@ -26,6 +26,8 @@
       <span class="symbol" aria-hidden="true">€</span>
       <input
         type="text"
+        [value]="borrowAmount | number: '1.0-0'"
+        (input)="onInputChange($event, 'borrowAmount')"
         aria-required="true"
         aria-label="Borrowing Amount"
         required
@@ -50,6 +52,8 @@
       <span class="symbol" aria-hidden="true">€</span>
       <input
         type="text"
+        [value]="purchasePrice | number: '1.0-0'"
+        (input)="onInputChange($event, 'purchasePrice')"
         aria-required="true"
         aria-label="Purchase Price"
         required
@@ -78,7 +82,11 @@
         aria-required="true"
         aria-label="Preferred Repayment Period"
       >
-        <mat-select aria-label="Preferred Repayment Period" required>
+        <mat-select
+          [(value)]="loanTerm"
+          aria-label="Preferred Repayment Period"
+          required
+        >
           <mat-option [value]="35">35 Years</mat-option>
           <mat-option [value]="30">30 Years</mat-option>
           <mat-option [value]="25">25 Years</mat-option>
@@ -106,6 +114,8 @@
       <span class="symbol" aria-hidden="true">€</span>
       <input
         type="text"
+        [value]="grossIncome | number: '1.0-0'"
+        (input)="onInputChange($event, 'grossIncome')"
         aria-required="true"
         aria-label="Gross Household Income"
         required
@@ -130,7 +140,9 @@
       <span class="symbol" aria-hidden="true">%</span>
       <input
         type="number"
+        [(ngModel)]="interestRate"
         placeholder="%"
+        (input)="onInputChange($event, 'interestRate')"
         aria-required="true"
         aria-label="Interest Rate"
         required

@@ -7,20 +7,20 @@
 <i class="fas fa-calculator"></i>
 
 <!-- Display the calculated monthly payment -->
-<span class="mortgage-total">€232323223</span>
+<span class="mortgage-total">€{{ monthlyPayment | number: '1.2-2' }}</span>
 <span class="per-month">Per Month</span>
 
 <div class="mortgage-info">
   <div class="mortgage-info-item">
-    <span>23x</span>
+    <span>{{ debtToIncomeRatio }}x</span>
     <label>Debt To Income</label>
   </div>
   <div class="mortgage-info-item">
-    <span>23%</span>
+    <span>{{ loanToValueRatio }}%</span>
     <label>Loan To Value</label>
   </div>
   <div class="mortgage-info-item">
-    <span>23</span>
+    <span>{{ loanTerm }}</span>
     <label>Term (Years)</label>
   </div>
 </div>
