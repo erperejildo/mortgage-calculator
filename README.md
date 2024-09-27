@@ -25,3 +25,11 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 - Mortgage calculation: I'm still not sure about the "borrowing amount". It probably has some miscalculation, but it is due to my lack of info regarding this topic in particular.
 - Validation: I added a simple validation for all inputs showing a text in one component and hidding the values in the other.
 - Accessibility: Covered both components with necessary arias, tooltips, etc., as well created a correct skeleton to improve SEO. Page was also tested using keyboard only and in dark mode.
+
+## EXTRA EXAMPLES
+
+In case you want to see something more, these are some other recent examples:
+
+- Weather app (React): [SEE](https://github.com/erperejildo/weather-app)
+- Payslip app (React and Ionic): [SEE](https://github.com/erperejildo/myPayslips)
+- TV list (Angular and Ionic): [SEE](https://github.com/erperejildo/tv-maze)
