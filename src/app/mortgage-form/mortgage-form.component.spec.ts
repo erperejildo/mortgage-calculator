@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MortgageFormsComponent } from './mortgage-forms.component';
+import { MortgageFormComponent } from './mortgage-form.component';
 
-describe('MortgageFormsComponent', () => {
-  let component: MortgageFormsComponent;
-  let fixture: ComponentFixture<MortgageFormsComponent>;
+describe('MortgageFormComponent', () => {
+  let component: MortgageFormComponent;
+  let fixture: ComponentFixture<MortgageFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MortgageFormsComponent],
+      imports: [MortgageFormComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MortgageFormsComponent);
+    fixture = TestBed.createComponent(MortgageFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

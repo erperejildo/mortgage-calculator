@@ -4,10 +4,10 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <div class="container">
-      <app-mortgage-forms
+      <app-mortgage-form
         (calculationDone)="handleCalculation($event)"
         (formHasErrors)="handleErrors($event)"
-      ></app-mortgage-forms>
+      ></app-mortgage-form>
 
       <app-mortgage-result
         [monthlyPayment]="calculatedData?.monthlyPayment"

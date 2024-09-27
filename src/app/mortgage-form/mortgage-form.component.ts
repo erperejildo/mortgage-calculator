@@ -1,11 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-mortgage-forms',
-  templateUrl: './mortgage-forms.component.html',
-  styleUrls: ['./mortgage-forms.component.scss'],
+  selector: 'app-mortgage-form',
+  templateUrl: './mortgage-form.component.html',
+  styleUrls: ['./mortgage-form.component.scss'],
 })
-export class MortgageFormsComponent implements OnInit {
+export class MortgageFormComponent implements OnInit {
   borrowAmount: number | null = 826800;
   purchasePrice: number | null = 910000;
   loanTerm: number = 30;

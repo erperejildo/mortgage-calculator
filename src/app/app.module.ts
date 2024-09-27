@@ -13,11 +13,11 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AppComponent } from './app.component';
-import { MortgageFormsComponent } from './mortgage-forms/mortgage-forms.component';
+import { MortgageFormComponent } from './mortgage-form/mortgage-form.component';
 import { MortgageResultComponent } from './mortgage-result/mortgage-result.component';
 
 @NgModule({
-  declarations: [AppComponent, MortgageFormsComponent, MortgageResultComponent],
+  declarations: [AppComponent, MortgageFormComponent, MortgageResultComponent],
   imports: [
     BrowserModule,
     FormsModule,
