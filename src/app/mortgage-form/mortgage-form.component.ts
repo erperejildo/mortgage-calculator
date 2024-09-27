@@ -67,13 +67,17 @@ export class MortgageFormComponent implements OnInit {
         (this.borrowAmount / this.grossIncome).toFixed(1)
       );
 
-      this.mortgageService.setCalculationData({
-        monthlyPayment: this.monthlyPayment,
-        debtToIncomeRatio: this.debtToIncomeRatio,
-        loanToValueRatio: this.loanToValueRatio,
-        loanTerm: this.loanTerm,
-        hasError: this.hasError,
-      });
+      if (this.monthlyPayment < 0) {
+        this.hasError = true;
+      } else {
+        this.mortgageService.setCalculationData({
+          monthlyPayment: this.monthlyPayment,
+          debtToIncomeRatio: this.debtToIncomeRatio,
+          loanToValueRatio: this.loanToValueRatio,
+          loanTerm: this.loanTerm,
+          hasError: this.hasError,
+        });
+      }
     }
   }
 }
