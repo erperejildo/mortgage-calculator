@@ -6,27 +6,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## DEV NOTES
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-
-NOTES:
-
-- emit values before lazy loading: https://github.com/erperejildo/mortgage-calculator/commit/0e1ebb5863815a97046bf3d07efeebf458790f2f
-- routing: no needed https://github.com/erperejildo/mortgage-calculator/commit/632c8c8bc903b93b9c6b04cd709bd6186b8b54af
+- Style: Sass as a default preprocessor. Added angular material for some elements. I didn't see any specific mobile design in Figma, but I addapted the UI for any screen resolution (following my criteria).
+  I'm not totally sure if we wanted to have Go Back / Next Step buttons and other elements as well not related to this. If that's necessary let me know and I'll add them.
+  Added number formatting.
+- Components: Created 2 components ([mortgage-form](https://github.com/erperejildo/mortgage-calculator/tree/main/src/app/mortgage-form) and [mortgage-result](https://github.com/erperejildo/mortgage-calculator/tree/main/src/app/mortgage-result)) to display each card. Probably, the simple UI, doesn't really need more than one component for this, but I thought it was a good idea to divide this in case, the app grows.
+- Lazy loading: Following previous idea, the app uses lazy loading in case we need to add more and more componets to it.
+- Share info: Initially, I was passing information between components using `@Input`/`@Output`/`EventEmitter` (check [here](https://github.com/erperejildo/mortgage-calculator/commit/0e1ebb5863815a97046bf3d07efeebf458790f2f)), but after implementing lazy loading, I created a [service](https://github.com/erperejildo/mortgage-calculator/blob/main/src/app/services/mortgage.service.ts) for this, separating the logic.
+- Routing: Since this is not really needed (it just a home page), this is not created, but I pushed [some example](https://github.com/erperejildo/mortgage-calculator/commit/632c8c8bc903b93b9c6b04cd709bd6186b8b54af) in case we wanted some routes.
+- Unit tests: Added. Just run `ng test`.
+- Mortgage calculation: I'm not familiar with this, I googled about it, but still not sure about the "borrowing amount". It probably has some miscalculation.
+- Validation: I added a simple validation for all inputs showing a text in one component and hidding the values in the other.
+- Accessibility: Covered both components with necessary arias, tooltips, etc., as well created a correct skeleton to improve SEO. Page was also tested using keyboard only.
