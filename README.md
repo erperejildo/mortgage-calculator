@@ -25,3 +25,12 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 - Mortgage calculation: I'm still not sure about the "borrowing amount". It probably has some miscalculation, but it is due to my lack of info regarding this topic in particular.
 - Validation: I added a simple validation for all inputs showing a text in one component and hidding the values in the other.
 - Accessibility: Covered both components with necessary arias, tooltips, etc., as well created a correct skeleton to improve SEO. Page was also tested using keyboard only and in dark mode.
+
+## SCREENSHOTS
+
+![image](https://github.com/user-attachments/assets/e270d508-f5d7-4289-8dbd-86873f8382ec)
+
+![image](https://github.com/user-attachments/assets/a1a29595-e3da-4daa-a023-4c8904218b44)
+
+![image](https://github.com/user-attachments/assets/a9f7524f-95c4-4fb7-9e32-a4a4799d4d03)
+
