@@ -22,6 +22,6 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 - Share info: Initially, I was passing information between components using `@Input`/`@Output`/`EventEmitter` (check [here](https://github.com/erperejildo/mortgage-calculator/commit/0e1ebb5863815a97046bf3d07efeebf458790f2f)), but after implementing lazy loading, I created a [service](https://github.com/erperejildo/mortgage-calculator/blob/main/src/app/services/mortgage.service.ts) for this, separating the logic.
 - Routing: Since this is not really needed (it just a home page), this is not created, but I pushed [some example](https://github.com/erperejildo/mortgage-calculator/commit/632c8c8bc903b93b9c6b04cd709bd6186b8b54af) in case we wanted some routes.
 - Unit tests: Added. Just run `ng test`.
-- Mortgage calculation: I'm not familiar with this, I googled about it, but still not sure about the "borrowing amount". It probably has some miscalculation.
+- Mortgage calculation: I'm still not sure about the "borrowing amount". It probably has some miscalculation, but it is due to my lack of info regarding this topic in particular.
 - Validation: I added a simple validation for all inputs showing a text in one component and hidding the values in the other.
-- Accessibility: Covered both components with necessary arias, tooltips, etc., as well created a correct skeleton to improve SEO. Page was also tested using keyboard only.
+- Accessibility: Covered both components with necessary arias, tooltips, etc., as well created a correct skeleton to improve SEO. Page was also tested using keyboard only and in dark mode.
