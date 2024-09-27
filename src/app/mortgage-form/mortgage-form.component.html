@@ -84,6 +84,7 @@
       >
         <mat-select
           [(value)]="loanTerm"
+          (selectionChange)="calculate()"
           aria-label="Preferred Repayment Period"
           required
         >
