@@ -15,10 +15,6 @@
 .mat-mdc-text-field-wrapper {
   background-color: #f9f9f9;
   border-radius: 5px !important;
-
-  @media (prefers-color-scheme: dark) {
-    background-color: #ccc;
-  }
 }
 
 div.mat-mdc-select-panel {
@@ -103,10 +99,6 @@ input {
   &:focus {
     outline: none;
     border: none;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    background-color: #ccc;
   }
 }
 
