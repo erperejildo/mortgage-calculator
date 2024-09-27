@@ -1,4 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@font-face {
+  font-family: 'Neutral';
+  src: url('assets/fonts/PolySans\ Neutral.ttf');
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  // if we didn't want to have a background image:
+  // background: linear-gradient(to right, #d9e5fc, #76a5fb);
+  background-image: url('assets/imgs/bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  font-family: 'Neutral';
+}
+
+.container {
+  padding: 20px;
+}
