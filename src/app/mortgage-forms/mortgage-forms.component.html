@@ -1,0 +1,140 @@
+<img
+  src="assets/imgs/lendwell-logo.png"
+  alt="Lendwell Logo"
+  class="logo"
+  role="img"
+  aria-label="Lendwell Logo"
+/>
+<h1>Your Mortgage</h1>
+<h2>Calculate Your Mortgage</h2>
+
+<div class="grid-container" role="grid">
+  <div class="grid-cell" role="gridcell">
+    <div class="input-header">
+      <i
+        class="material-icons"
+        matTooltip="The amount you want to borrow from a lender to purchase a property"
+        aria-label="Borrowing Amount Help"
+        role="button"
+        tabindex="0"
+        >help</i
+      >
+      <label class="sr-only">Borrowing Amount</label>
+      <span>Required</span>
+    </div>
+    <div class="input-container symbol-left">
+      <span class="symbol" aria-hidden="true">€</span>
+      <input
+        type="text"
+        aria-required="true"
+        aria-label="Borrowing Amount"
+        required
+      />
+    </div>
+  </div>
+
+  <div class="grid-cell" role="gridcell">
+    <div class="input-header">
+      <i
+        class="material-icons"
+        matTooltip="The amount you agree to pay for a property when you sign a binding contract with the seller"
+        aria-label="Purchase Price Help"
+        role="button"
+        tabindex="0"
+        >help</i
+      >
+      <label class="sr-only">Purchase Price</label>
+      <span>Required</span>
+    </div>
+    <div class="input-container symbol-left">
+      <span class="symbol" aria-hidden="true">€</span>
+      <input
+        type="text"
+        aria-required="true"
+        aria-label="Purchase Price"
+        required
+      />
+    </div>
+  </div>
+
+  <div class="grid-cell" role="gridcell">
+    <div class="input-header">
+      <i
+        class="material-icons"
+        matTooltip="The amount of time you agree to pay back your mortgage for, in addition to the interest on the borrowed amount"
+        aria-label="Preferred Repayment Period Help"
+        role="button"
+        tabindex="0"
+        >help</i
+      >
+      <label class="sr-only">Preferred Repayment Period</label>
+      <span>Required</span>
+    </div>
+    <div class="input-container">
+      <mat-form-field
+        appearance="outline"
+        class="full-width custom-input"
+        role="combobox"
+        aria-required="true"
+        aria-label="Preferred Repayment Period"
+      >
+        <mat-select aria-label="Preferred Repayment Period" required>
+          <mat-option [value]="35">35 Years</mat-option>
+          <mat-option [value]="30">30 Years</mat-option>
+          <mat-option [value]="25">25 Years</mat-option>
+          <mat-option [value]="20">20 Years</mat-option>
+          <mat-option [value]="15">15 Years</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="grid-cell" role="gridcell">
+    <div class="input-header">
+      <i
+        class="material-icons"
+        matTooltip="Your total household income before taxes and other deductions"
+        aria-label="Gross Household Income Help"
+        role="button"
+        tabindex="0"
+        >help</i
+      >
+      <label class="sr-only">Gross Household Income</label>
+      <span>Required</span>
+    </div>
+    <div class="input-container symbol-left">
+      <span class="symbol" aria-hidden="true">€</span>
+      <input
+        type="text"
+        aria-required="true"
+        aria-label="Gross Household Income"
+        required
+      />
+    </div>
+  </div>
+
+  <div class="grid-cell" role="gridcell">
+    <div class="input-header">
+      <i
+        class="material-icons"
+        matTooltip="The percentage of your outstanding mortgage amount that you will be charged by your lender as interest on your mortgage over a given period of time"
+        aria-label="Interest Rate Help"
+        role="button"
+        tabindex="0"
+        >help</i
+      >
+      <label class="sr-only">Interest Rate</label>
+      <span>Required</span>
+    </div>
+    <div class="input-container symbol-right">
+      <span class="symbol" aria-hidden="true">%</span>
+      <input
+        type="number"
+        placeholder="%"
+        aria-required="true"
+        aria-label="Interest Rate"
+        required
+      />
+    </div>
+  </div>
+</div>
