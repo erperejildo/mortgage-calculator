@@ -1,0 +1,77 @@
+:host {
+  display: block;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 767px) {
+    margin-top: 20px;
+  }
+}
+
+h4 {
+  margin-top: 10px;
+}
+
+.calculator {
+  width: 23px;
+}
+
+.mortgage-total {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.per-month {
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.mortgage-info {
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  @media (min-width: 600px) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 20px;
+  }
+}
+
+.mortgage-info-item {
+  background-color: #f3f6ff;
+  border-radius: 10px;
+  text-align: center;
+  color: #194dfa;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (max-width: 599px) {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  @media (min-width: 600px) {
+    flex: 1 1 0;
+  }
+
+  span {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+
+  label {
+    font-size: 12px;
+  }
+}
+
+.message {
+  line-height: 1.5;
+}

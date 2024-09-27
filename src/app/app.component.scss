@@ -1,0 +1,17 @@
+.container {
+  @media (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+
+    app-mortgage-forms {
+      flex: 2 3 0;
+    }
+
+    app-mortgage-result {
+      flex: 1 1 0;
+      align-self: center;
+    }
+  }
+}
