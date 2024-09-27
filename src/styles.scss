@@ -6,10 +6,12 @@
   src: url('assets/fonts/PolySans\ Neutral.ttf');
 }
 
-html,
-body {
-  height: 100%;
+@layer base {
+  :root {
+    --color-grey: #677576;
+  }
 }
+
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;

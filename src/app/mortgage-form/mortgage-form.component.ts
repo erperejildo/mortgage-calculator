@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MortgageService } from '../services/mortgage.service';
 
 @Component({
   selector: 'app-mortgage-form',
@@ -6,6 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./mortgage-form.component.scss'],
 })
 export class MortgageFormComponent implements OnInit {
+  // just for an easy testing
   borrowAmount: number | null = 826800;
   purchasePrice: number | null = 910000;
   loanTerm: number = 30;
@@ -16,10 +18,9 @@ export class MortgageFormComponent implements OnInit {
   debtToIncomeRatio: number = 0;
   loanToValueRatio: number = 0;
 
-  @Output() calculationDone: EventEmitter<any> = new EventEmitter<any>();
-  @Output() formHasErrors: EventEmitter<any> = new EventEmitter<any>();
-
   hasError: boolean = false;
+
+  constructor(private mortgageService: MortgageService) {}
 
   ngOnInit(): void {
     this.calculate();
@@ -35,19 +36,17 @@ export class MortgageFormComponent implements OnInit {
     if (!value || isNaN(Number(value))) {
       this.hasError = true;
       (this[model] as number | null) = null;
+
+      this.mortgageService.setCalculationData(null);
     } else {
       this.hasError = false;
       (this[model] as number) = parseFloat(value);
       this.calculate();
     }
-
-    this.formHasErrors.emit({
-      hasError: this.hasError,
-    });
+    this.mortgageService.setFormErrors(this.hasError);
   }
 
   calculate() {
-    console.log('calculate');
     if (
       this.borrowAmount !== null &&
       this.purchasePrice !== null &&
@@ -68,11 +67,12 @@ export class MortgageFormComponent implements OnInit {
         (this.borrowAmount / this.grossIncome).toFixed(1)
       );
 
-      this.calculationDone.emit({
+      this.mortgageService.setCalculationData({
         monthlyPayment: this.monthlyPayment,
         debtToIncomeRatio: this.debtToIncomeRatio,
         loanToValueRatio: this.loanToValueRatio,
         loanTerm: this.loanTerm,
+        hasError: this.hasError,
       });
     }
   }
