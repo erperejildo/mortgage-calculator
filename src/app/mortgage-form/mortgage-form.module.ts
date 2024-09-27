@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule, Routes } from '@angular/router';
@@ -17,6 +18,7 @@ const routes: Routes = [{ path: '', component: MortgageFormComponent }];
     MatSelectModule,
     MatFormFieldModule,
     MatTooltipModule,
+    MatRadioModule,
     RouterModule.forChild(routes),
   ],
   exports: [MortgageFormComponent],

@@ -11,6 +11,13 @@ export class MortgageFormComponent implements OnInit {
   borrowAmount: number | null = 826800;
   purchasePrice: number | null = 910000;
   loanTerm: number = 30;
+  loanTerms = [
+    { label: '35 Years', value: 35 },
+    { label: '30 Years', value: 30 },
+    { label: '25 Years', value: 25 },
+    { label: '20 Years', value: 20 },
+    { label: '15 Years', value: 15 },
+  ];
   grossIncome: number | null = 225000;
   interestRate: number | null = 3.65;
 

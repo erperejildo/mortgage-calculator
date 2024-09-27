@@ -87,11 +87,17 @@
           aria-label="Preferred Repayment Period"
           required
         >
-          <mat-option [value]="35">35 Years</mat-option>
-          <mat-option [value]="30">30 Years</mat-option>
-          <mat-option [value]="25">25 Years</mat-option>
-          <mat-option [value]="20">20 Years</mat-option>
-          <mat-option [value]="15">15 Years</mat-option>
+          <mat-option *ngFor="let term of loanTerms" [value]="term.value">
+            <mat-radio-group
+              [(ngModel)]="loanTerm"
+              aria-label="Select a Repayment Period option"
+              class="radio-group"
+            >
+              <mat-radio-button [value]="term.value">
+                {{ term.label }}
+              </mat-radio-button>
+            </mat-radio-group>
+          </mat-option>
         </mat-select>
       </mat-form-field>
     </div>
