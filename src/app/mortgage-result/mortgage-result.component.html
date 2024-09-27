@@ -1,35 +1,39 @@
 <img
   src="assets/icons/calculator.svg"
-  alt="Calculator Logo"
+  alt="Calculator Icon"
   class="calculator"
+  role="img"
+  aria-label="Calculator Icon"
 />
 <h4>Your Mortgage Calculation</h4>
-<i class="fas fa-calculator"></i>
+<i class="fas fa-calculator" role="presentation" aria-hidden="true"></i>
 
 <span class="mortgage-total" [ngClass]="{ 'blur-text': hasError }"
   >€{{ monthlyPayment | number: '1.2-2' }}</span
 >
-<span class="per-month">Per Month</span>
+<span class="per-month" role="text">Per Month</span>
 
-<div class="mortgage-info">
-  <div class="mortgage-info-item">
+<div class="mortgage-info" role="list">
+  <div class="mortgage-info-item" role="listitem">
     <span [ngClass]="{ 'blur-text': hasError }">{{ debtToIncomeRatio }}x</span>
-    <label>Debt To Income</label>
+    <label role="listitem" for="debt-to-income">Debt To Income</label>
   </div>
-  <div class="mortgage-info-item">
+  <div class="mortgage-info-item" role="listitem">
     <span [ngClass]="{ 'blur-text': hasError }">{{ loanToValueRatio }}%</span>
-    <label>Loan To Value</label>
+    <label role="listitem" for="loan-to-value">Loan To Value</label>
   </div>
-  <div class="mortgage-info-item">
+  <div class="mortgage-info-item" role="listitem">
     <span [ngClass]="{ 'blur-text': hasError }">{{ loanTerm }}</span>
-    <label>Term (Years)</label>
+    <label role="listitem" for="loan-term">Term (Years)</label>
   </div>
 </div>
 
-<div class="message">
-  Here's our estimate of your monthly mortgage repayments. In general, the
-  maximum amount you can borrow is
-  <strong>4.5x</strong> your joint income and you need to have at least
-  <strong>10%</strong> of the value of the property saved as a deposit for
-  lenders to accept your application.
+<div class="message" role="article">
+  <p>
+    Here's our estimate of your monthly mortgage repayments. In general, the
+    maximum amount you can borrow is
+    <strong>4.5x</strong> your joint income and you need to have at least
+    <strong>10%</strong> of the value of the property saved as a deposit for
+    lenders to accept your application.
+  </p>
 </div>
