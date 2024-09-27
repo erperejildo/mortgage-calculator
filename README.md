@@ -25,3 +25,8 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+NOTES:
+
+- emit values before lazy loading: https://github.com/erperejildo/mortgage-calculator/commit/0e1ebb5863815a97046bf3d07efeebf458790f2f
+- routing: no needed https://github.com/erperejildo/mortgage-calculator/commit/632c8c8bc903b93b9c6b04cd709bd6186b8b54af
